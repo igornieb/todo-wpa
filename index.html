@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div id="login-page">
+        <h1>Witaj w aplikacji TODO!</h1>
+        <p>Wybierz użytkownika, aby kontynuować.</p>
+        <input type="number" id="user-id" placeholder="ID użytkownika" min=1 max=10>
+        <button id="login-button" onclick="setUser()">Zaloguj</button>
+    </div>
+
+    <div id="nav-panel-logged" style="display:none;">
+        <nav>
+            <ul>
+                <li><button onclick="changeUser()">Zmiana użytkownika</button> </li>
+                <li><button onclick="displayTodoList()">Lista zadan</button> </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="todo-list" style="display:none;">
+        <div id="local-todos"></div>
+        <form id="todo-form">
+            <input type="text" id="todo-title" placeholder="Nowe zadanie" required>
+            <button type="submit">Dodaj</button>
+        </form>
+<div id="local-todos"></div>
+
+    </div>
+
+    <div id="todo-detail" style="display:none;">
+        <main>
+            <!-- Treść głównego panelu -->
+            <p>Witaj użytkowniku!</p>
+        </main>
+    </div>
+
+
+    <script src="scripts.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(function() {
+                    console.log('Service Worker zarejestrowany poprawnie.');
+                })
+                .catch(function(error) {
+                    console.error('Błąd podczas rejestracji Service Workera:', error);
+                });
+        }
+    </script>
+</body>
+</html>
