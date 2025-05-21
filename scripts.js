@@ -143,7 +143,7 @@ function showTodoDetail(id) {
                 <h2>Szczegóły zadania</h2>
                 <h3>${data.title}</h3>
                 <p>Status: ${data.completed ? 'Zrobione' : 'Nie zrobione'}</p>
-                <button onclick="display_todo_list()">Powrót</button>
+                <button onclick="displayTodoList()">Powrót</button>
             `;
             document.getElementById('todo-list').style.display = 'none';
             document.getElementById('login-page').style.display = 'none';
